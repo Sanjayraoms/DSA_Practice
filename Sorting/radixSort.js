@@ -16,5 +16,16 @@ function mostDigits(arr) {
     return mostdig;
 }
 
-//console.log(getDigit(12345,4))
-console.log(digitCount(12345));
+function radixSort(arr) {
+    let mostdig = mostDigits(arr);
+    for (let index = 0; index < mostdig; index++) {
+        let digitBuckets = Array.from({length: 10},() => []);
+        for(let i=0;i<arr.length;i++){
+            digitBuckets[getDigit(arr[i],index)].push(arr[i]);
+        }
+        arr = [].concat(...digitBuckets);
+    }
+    return arr;
+}
+
+console.log(radixSort([45,259,698,365,2589,12,37]));
