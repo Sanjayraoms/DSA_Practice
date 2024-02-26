@@ -29,4 +29,5 @@ function findtheDiff(s,t) {
         }     
     }
 }
+//Alternate solution is getting Unicode values and getting character from difference of unicode value
 console.log(findtheDiff("","t"))
