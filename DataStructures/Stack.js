@@ -33,7 +33,7 @@ class Stack{
             this.First = null;
             this.Last = null;
         }
-        return poppedVal;
+        return poppedVal.val;
     }
 }
 var st= new Stack();
