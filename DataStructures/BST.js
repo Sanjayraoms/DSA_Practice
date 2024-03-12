@@ -73,6 +73,27 @@ class BinarySearchTree{
         traverse(currentNode);
         return visited;
     }
+    DFSPostOrder(){
+        var visited = [];
+        var currentNode = this.root;
+        function traverse(node){
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+            visited.push(node.val);
+        }
+        traverse(currentNode);
+        return visited;
+    }
+    DFSInOrder(){
+        var visited = [];
+        function traverse(node) {
+            if(node.left) traverse(node.left);
+            visited.push(node.val);
+            if(node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return visited;
+    }
 }
 
 var bst = new BinarySearchTree();
@@ -82,4 +103,4 @@ bst.insertNode(6);
 bst.insertNode(3);
 bst.insertNode(8);
 bst.insertNode(20);
-console.log(bst.DFSPreOrder());
+console.log(bst.DFSInOrder());
