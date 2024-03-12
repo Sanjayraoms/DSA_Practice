@@ -62,6 +62,17 @@ class BinarySearchTree{
         }
         return visited;        
     }
+    DFSPreOrder(){
+        var visited = [];
+        var currentNode = this.root;
+        function traverse(node){
+            visited.push(node.val);
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+        traverse(currentNode);
+        return visited;
+    }
 }
 
 var bst = new BinarySearchTree();
@@ -71,4 +82,4 @@ bst.insertNode(6);
 bst.insertNode(3);
 bst.insertNode(8);
 bst.insertNode(20);
-console.log(bst.breadthFirstSearch());
+console.log(bst.DFSPreOrder());
