@@ -17,12 +17,12 @@ class minBinaryHeap{
     }
     bubbleUp(){
         var currentPosition = this.values.length - 1;
+        const element = this.values[currentPosition];
         while (currentPosition > 0) {
             let parentPosition = Math.floor((currentPosition - 1)/2);
             let parent = this.values[parentPosition];
-            let current = this.values[currentPosition];
-            if (parent.priority > current.priority) {
-                this.values[parentPosition] = current;
+            if (parent.priority > element.priority) {
+                this.values[parentPosition] = element;
                 this.values[currentPosition] = parent;
                 currentPosition = parentPosition;
             }
