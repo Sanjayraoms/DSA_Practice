@@ -25,16 +25,60 @@ class Graph{
         }
         delete this.adjacencyList[vertex];
     }
+    recursiveDFS(startVertex){
+        var results = [];
+        var visited = {};
+        var adjacencyList = this.adjacencyList;
+        function DFS(vertex) {
+            if(!vertex) return null;
+            results.push(vertex);
+            visited[vertex] = true;
+            // for (let index = 0; index < adjacencyList[vertex].length; index++) {
+            //     if(!visited[adjacencyList[vertex][index]])
+            //        return DFS(adjacencyList[vertex][index]);
+            // }
+            adjacencyList[vertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    return DFS(neighbor)
+                }
+            });
+        }
+        DFS(startVertex);
+        return results;
+    }
+    iterativeDFS(startVertex){
+        const adjacencyList = this.adjacencyList;
+        var results = [];
+        var visited = {};
+        var stack = [];
+        stack.push(startVertex);
+        while (stack.length > 0) {
+            let poppedVertex = stack.pop();
+            if (!visited[poppedVertex]) {
+                visited[poppedVertex] = true;
+                results.push(poppedVertex);
+                adjacencyList[poppedVertex].forEach(neighbor => {
+                    stack.push(neighbor);
+                });
+            }
+        }
+        return results;
+    }
 }
 
 var graph = new Graph();
-graph.addvertex("Delhi");
-graph.addvertex("Dallas");
-graph.addvertex("Tokyo");
-graph.addvertex("Hongkong");
-graph.addEdge("Delhi","Dallas")
-graph.addEdge("Delhi","Tokyo")
-graph.addEdge("Delhi","Hongkong")
-graph.addEdge("Hongkong","Tokyo")
-graph.addEdge("Hongkong","Dallas")
-console.log();
+graph.addvertex("A");
+graph.addvertex("B");
+graph.addvertex("C");
+graph.addvertex("D");
+graph.addvertex("E");
+graph.addvertex("F");
+graph.addEdge("A","B")
+graph.addEdge("A","C")
+graph.addEdge("B","D")
+graph.addEdge("C","E")
+graph.addEdge("D","E")
+graph.addEdge("D","F")
+graph.addEdge("E","F")
+console.log(graph.recursiveDFS("A"))
+console.log(graph.iterativeDFS("A"));
