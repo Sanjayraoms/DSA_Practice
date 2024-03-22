@@ -1,16 +1,16 @@
-class Graph{
-    constructor(){
+class Graph {
+    constructor() {
         this.adjacencyList = {};
     }
-    addvertex(vertex){
-        if(!this.adjacencyList[vertex])
-           this.adjacencyList[vertex] = [];
+    addvertex(vertex) {
+        if (!this.adjacencyList[vertex])
+            this.adjacencyList[vertex] = [];
     }
-    addEdge(vertex1,vertex2){
+    addEdge(vertex1, vertex2) {
         this.adjacencyList[vertex1].push(vertex2);
         this.adjacencyList[vertex2].push(vertex1);
     }
-    removeEdge(vertex1,vertex2){
+    removeEdge(vertex1, vertex2) {
         this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
             v => v !== vertex2
         );
@@ -18,19 +18,19 @@ class Graph{
             v => v !== vertex1
         );
     }
-    removeVertex(vertex){
+    removeVertex(vertex) {
         let arr1 = this.adjacencyList[vertex];
         for (let index = 0; index < arr1.length; index++) {
-            this.removeEdge(arr1[index],vertex);           
+            this.removeEdge(arr1[index], vertex);
         }
         delete this.adjacencyList[vertex];
     }
-    recursiveDFS(startVertex){
+    recursiveDFS(startVertex) {
         var results = [];
         var visited = {};
         var adjacencyList = this.adjacencyList;
         function DFS(vertex) {
-            if(!vertex) return null;
+            if (!vertex) return null;
             results.push(vertex);
             visited[vertex] = true;
             // for (let index = 0; index < adjacencyList[vertex].length; index++) {
@@ -46,7 +46,7 @@ class Graph{
         DFS(startVertex);
         return results;
     }
-    iterativeDFS(startVertex){
+    iterativeDFS(startVertex) {
         const adjacencyList = this.adjacencyList;
         var results = [];
         var visited = {};
@@ -64,6 +64,25 @@ class Graph{
         }
         return results;
     }
+    breadthFirstSearch(startVertex) {
+        var results = [];
+        var visited = {};
+        var queue = [startVertex];
+        visited[startVertex] = true;
+        let currentVertex = null;
+        while (queue.length > 0) {
+            currentVertex = queue.shift();
+            results.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            });
+        }
+        return results;
+    }
 }
 
 var graph = new Graph();
@@ -73,12 +92,13 @@ graph.addvertex("C");
 graph.addvertex("D");
 graph.addvertex("E");
 graph.addvertex("F");
-graph.addEdge("A","B")
-graph.addEdge("A","C")
-graph.addEdge("B","D")
-graph.addEdge("C","E")
-graph.addEdge("D","E")
-graph.addEdge("D","F")
-graph.addEdge("E","F")
-console.log(graph.recursiveDFS("A"))
-console.log(graph.iterativeDFS("A"));
+graph.addEdge("A", "B")
+graph.addEdge("A", "C")
+graph.addEdge("B", "D")
+graph.addEdge("C", "E")
+graph.addEdge("D", "E")
+graph.addEdge("D", "F")
+graph.addEdge("E", "F")
+// console.log(graph.recursiveDFS("A"))
+// console.log(graph.iterativeDFS("A"));
+console.log(graph.breadthFirstSearch("A"));
