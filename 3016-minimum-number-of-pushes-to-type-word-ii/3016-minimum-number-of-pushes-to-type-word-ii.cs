@@ -25,8 +25,8 @@ public class Solution {
             }
         }
 
-        foreach(KeyValuePair<char,int> item in charfreq)
-            totalStrokes += (keymaps[item.Key]*charfreq[item.Key]);
+        foreach(char item in word)
+            totalStrokes += keymaps[item];
         
         return totalStrokes;
     }
