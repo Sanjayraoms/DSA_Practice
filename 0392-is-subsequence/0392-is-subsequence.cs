@@ -9,11 +9,10 @@ public class Solution {
         while(i < s.Length && j < t.Length){
             if(s[i] == t[j]){
                 i++;
-                j++;
                 if(i == s.Length)
                    return true;
-            }else
-               j++;
+            }
+            j++;
         }
         return false;
     }
