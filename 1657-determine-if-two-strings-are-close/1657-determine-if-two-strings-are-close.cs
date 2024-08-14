@@ -17,6 +17,11 @@ public class Solution {
             else
                freq2[c] = 1;
         }
+
+        foreach(char key in freq.Keys){
+            if(!freq2.ContainsKey(key))
+               return false;
+        }
         foreach(var val in freq.Values){
             if(freqVal.ContainsKey(val))
                freqVal[val]++;
