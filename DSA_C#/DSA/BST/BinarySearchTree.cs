@@ -52,5 +52,23 @@ namespace BST
 
             return root;
         }
+
+        public bool find(int val)
+        {
+            var currentNode = root;
+            while (currentNode != null)
+            {
+                if(currentNode.val == val)
+                    return true;
+                else
+                {
+                    if (val > currentNode.val)
+                        currentNode = currentNode.right;
+                    else
+                        currentNode = currentNode.left;
+                }
+            }
+            return false;
+        }
     }
 }
