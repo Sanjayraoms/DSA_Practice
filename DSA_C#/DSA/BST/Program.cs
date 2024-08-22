@@ -15,3 +15,9 @@ bst.Insert(8);
 
 Console.WriteLine($"Is 5 present : {bst.find(5)}");
 Console.WriteLine($"Is 20 present : {bst.find(20)}");
+var visited = bst.BFS();
+Console.WriteLine($"Breadth first Search visited :");
+foreach (var item in visited)
+{
+    Console.WriteLine(item);
+}

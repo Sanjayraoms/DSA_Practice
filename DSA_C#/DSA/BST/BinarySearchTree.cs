@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,25 @@ namespace BST
                 }
             }
             return false;
+        }
+
+        public int[] BFS()
+        {
+            Queue<Node> nodes = new Queue<Node>();
+            List<int> visited = new List<int>();
+            if(root == null)
+                return visited.ToArray();
+            nodes.Enqueue(root);
+            while (nodes.Count > 0)
+            {
+                var node = nodes.Dequeue();
+                visited.Add(node.val);
+                if (node.left != null)
+                    nodes.Enqueue(node.left);
+                if(node.right != null)
+                    nodes.Enqueue(node.right);
+            }
+            return visited.ToArray();
         }
     }
 }
