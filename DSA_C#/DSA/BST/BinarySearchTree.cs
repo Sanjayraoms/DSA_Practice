@@ -119,5 +119,19 @@ namespace BST
             Traverse(currentNode);
             return vals.ToArray();
         }
+
+        public int[] DFSInOrder()
+        {
+            var vals = new List<int>();
+            var currentNode = root;
+            void Traverse(Node node)
+            {
+                if (node.left != null) Traverse(node.left);
+                vals.Add(node.val);
+                if (node.right != null) Traverse(node.right);
+            }
+            Traverse(currentNode);
+            return vals.ToArray();
+        }
     }
 }

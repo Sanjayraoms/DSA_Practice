@@ -24,6 +24,12 @@ var visited = bst.DFSPreOrder();
 Console.WriteLine($"Depth first Pre Order visited :");
 visited.ToList().ForEach(x => Console.Write($"{x} "));
 Console.WriteLine();
+
 var visited1 = bst.DFSPostOrder();
 Console.WriteLine($"Depth first Post Order visited :");
 visited1.ToList().ForEach(x => Console.Write($"{x} "));
+Console.WriteLine();
+
+var visited2 = bst.DFSInOrder();
+Console.WriteLine($"Depth first In Order visited :");
+visited2.ToList().ForEach(x => Console.Write($"{x} "));
