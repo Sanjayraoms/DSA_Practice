@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -89,6 +90,34 @@ namespace BST
                     nodes.Enqueue(node.right);
             }
             return visited.ToArray();
+        }
+
+        public int[] DFSPreOrder()
+        {
+            List<int> vals = new List<int>();
+            var currentNode = root;
+            void Traverse(Node node)
+            {
+                vals.Add(node.val);
+                if(node.left != null) Traverse(node.left);
+                if(node.right!= null) Traverse(node.right);
+            }
+            Traverse(currentNode);
+            return vals.ToArray();
+        }
+
+        public int[] DFSPostOrder()
+        {
+            var vals = new List<int>();
+            var currentNode = root;
+            void Traverse(Node node)
+            {
+                if(node.left != null) Traverse(node.left);
+                if(node.right !=null) Traverse(node.right);
+                vals.Add(node.val);
+            }
+            Traverse(currentNode);
+            return vals.ToArray();
         }
     }
 }
