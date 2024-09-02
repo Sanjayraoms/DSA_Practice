@@ -92,6 +92,7 @@ namespace BST
             return visited.ToArray();
         }
 
+// Visit Parent first and then children
         public int[] DFSPreOrder()
         {
             List<int> vals = new List<int>();
@@ -106,6 +107,7 @@ namespace BST
             return vals.ToArray();
         }
 
+// Visit Children First and then Parent
         public int[] DFSPostOrder()
         {
             var vals = new List<int>();
@@ -120,6 +122,7 @@ namespace BST
             return vals.ToArray();
         }
 
+// Visit Left nodes then parent and then right nodes
         public int[] DFSInOrder()
         {
             var vals = new List<int>();
