@@ -35,5 +35,50 @@ namespace BinaryHeap
             }
 
         }
+
+        public void extractMax(out int? swap, out int[] heap1)
+        {
+            if (heap.Count == 0)
+                swap = null;
+            if(heap.Count == 1)
+            {
+                var last = heap[0];
+                heap.RemoveAt(0);
+                swap = last;
+            }
+            swap = heap[0];
+            heap[0] = heap[heap.Count - 1];
+            heap[heap.Count - 1] = (int)swap;
+            heap.RemoveAt(heap.Count - 1);
+            sinkDown();
+            heap1 = heap.ToArray();
+        }
+
+        private void sinkDown()
+        {
+            var parentIndex = 0;
+            var element = heap[0];
+            int swap;
+            while (true)
+            {
+                var leftChildIdx = 2 * parentIndex + 1;
+                var rightChildIdx = 2 * parentIndex + 2;
+                swap = -1;
+                if(leftChildIdx < heap.Count)
+                {
+                    if (heap[leftChildIdx] > element)
+                        swap = leftChildIdx;
+                }
+                if(rightChildIdx < heap.Count)
+                {
+                    if(heap[rightChildIdx] > element && (swap == -1 || heap[rightChildIdx] > heap[swap]))
+                        swap = rightChildIdx;
+                }
+                if(swap == -1) break;
+                heap[parentIndex] = heap[swap];
+                heap[swap] = element;
+                parentIndex = swap;
+            }
+        }
     }
 }
