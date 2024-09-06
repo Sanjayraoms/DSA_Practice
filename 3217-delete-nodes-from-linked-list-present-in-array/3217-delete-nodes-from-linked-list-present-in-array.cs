@@ -11,23 +11,19 @@
  */
 public class Solution {
     public ListNode ModifiedList(int[] nums, ListNode head) {
-        Dictionary<int,int> map = new Dictionary<int,int>();
-        foreach(int num in nums){
-            if(!map.ContainsKey(num))
-               map[num] = 1;       
-        }
+        if(nums.Length ==0)
+           return head;
+        HashSet<int> map = new HashSet<int>(nums);
         ListNode currNode = head;
         ListNode prevNode = null;
         while(currNode != null){
-            if(map.ContainsKey(currNode.val)){
-                if(prevNode == null){
+            if(map.Contains(currNode.val)){
+                if(prevNode == null)
                     head = currNode.next;
-                }else{
+                else
                     prevNode.next = currNode.next;
-                }
-            }else{
+            }else
                 prevNode = currNode;
-            }
             currNode = currNode.next;
         }
         return head;
