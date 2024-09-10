@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BST", "BST\BST.csproj", "{FA1EEE78-2349-4DBF-BDBE-0CCE1803AECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryHeap", "BinaryHeap\BinaryHeap.csproj", "{C74479B3-2E68-446C-992B-222343F4A7EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryHeap", "BinaryHeap\BinaryHeap.csproj", "{C74479B3-2E68-446C-992B-222343F4A7EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graph\Graphs.csproj", "{A78F8657-527A-42A3-8FE3-63988DE54B69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C74479B3-2E68-446C-992B-222343F4A7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74479B3-2E68-446C-992B-222343F4A7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74479B3-2E68-446C-992B-222343F4A7EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78F8657-527A-42A3-8FE3-63988DE54B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78F8657-527A-42A3-8FE3-63988DE54B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78F8657-527A-42A3-8FE3-63988DE54B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78F8657-527A-42A3-8FE3-63988DE54B69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
