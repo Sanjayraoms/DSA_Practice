@@ -16,5 +16,9 @@ g.AddEdge(3, 5);
 g.AddEdge(5, 6);
 g.AddEdge(6, 7);
 
+//g.RemoveEdge(6, 7);
+
+g.RemoveVertex(2);
+
 
 

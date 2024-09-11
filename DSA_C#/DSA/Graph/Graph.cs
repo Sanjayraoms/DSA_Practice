@@ -25,5 +25,21 @@ namespace Graphs
             adjacencyList[vertex1].Add(vertex2);
             adjacencyList[vertex2].Add(vertex1);
         }
+
+        public void RemoveEdge(int vertex1, int vertex2)
+        {
+            adjacencyList[vertex1].Remove(vertex2);
+            adjacencyList[vertex2].Remove(vertex1);
+        }
+
+        public void RemoveVertex(int vertex)
+        {
+            var neighbours = adjacencyList[vertex].ToList();
+            foreach (var item in neighbours)
+            {
+                RemoveEdge(item, vertex);
+            }
+            adjacencyList.Remove(vertex);
+        }
     }
 }
