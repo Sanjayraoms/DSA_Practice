@@ -16,13 +16,9 @@ public class Solution {
             return head;
         var slow = head;
         var fast = head.next.next;
-        while(fast != null){
-            if(fast.next != null){
-                fast = fast.next.next;
-                slow = slow.next;
-            }
-            else
-                fast = null;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
         }
         return slow.next;
     }
