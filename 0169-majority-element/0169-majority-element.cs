@@ -8,10 +8,8 @@ public class Solution {
             }else{
                 map[num] = 1;
             }
-        }
-        foreach(int key in map.Keys){
-            if(map[key] > nby2){
-                return key;
+            if(map[num] > nby2){
+                return num;
             }
         }
         return 0;
