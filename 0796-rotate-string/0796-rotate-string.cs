@@ -3,8 +3,6 @@ public class Solution {
         if(s.Length != goal.Length)
             return false;
         string res = s + s;
-        if(res.IndexOf(goal) == -1)
-            return false;
-        return true;
+        return res.Contains(goal);
     }
 }
