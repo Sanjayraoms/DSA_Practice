@@ -21,4 +21,28 @@ g.AddEdge(6, 7);
 g.RemoveVertex(2);
 
 
+GraphChar graphChar = new GraphChar();
+
+graphChar.AddVertex('A');
+graphChar.AddVertex('B');
+graphChar.AddVertex('C');
+graphChar.AddVertex('D');
+graphChar.AddVertex('E');
+graphChar.AddVertex('F');
+
+graphChar.AddEdge('A', 'B');
+graphChar.AddEdge('A', 'C');
+graphChar.AddEdge('B', 'D');
+graphChar.AddEdge('C', 'E');
+graphChar.AddEdge('D', 'E');
+graphChar.AddEdge('D', 'F');
+graphChar.AddEdge('E', 'F');
+
+var res = graphChar.depthFirstRecursive('A');
+foreach (var item in res)
+{
+    Console.WriteLine(item);
+}
+
+
 
