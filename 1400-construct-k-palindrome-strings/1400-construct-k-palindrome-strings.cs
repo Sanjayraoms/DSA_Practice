@@ -3,19 +3,15 @@ public class Solution {
         if(k > s.Length)
             return false;
         int oddCounts = 0;
-        Dictionary<char,int> charCounts = new Dictionary<char,int>();
+        int[] dict = new int[26];
         foreach(char c in s){
-            if(charCounts.ContainsKey(c))
-                charCounts[c]++;
-            else
-                charCounts[c] = 1;
+            dict[c-'a']++;
         }
-        foreach(int val in charCounts.Values){
-            if(val%2 == 1){
+        foreach(int i in dict){
+            if(i%2 == 1)
                 oddCounts++;
-                if(oddCounts > k)
-                    return false;
-            }
+            if(oddCounts > k)
+                return false;
         }
         return true;
     }
