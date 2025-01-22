@@ -4,13 +4,10 @@ public class Solution {
         int n = isWater[0].Length;
 
         var res = new int[m][];
+        var q = new Queue<int[]>();
         for(int i = 0; i < m; i++){
             res[i] = new int[n];
             Array.Fill(res[i],-1);
-        }
-        var q = new Queue<int[]>();
-
-        for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(isWater[i][j] == 1){
                     res[i][j] = 0;
