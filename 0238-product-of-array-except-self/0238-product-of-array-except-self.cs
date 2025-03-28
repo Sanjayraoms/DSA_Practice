@@ -17,7 +17,7 @@ public class Solution {
 
         for(int i = 0 ; i < n; i++){
             if(i == 0)
-               res[i] = suffixProd[i];
+               res[i] = suffixProd[i+1];
             else if(i == n-1)
                res[i] = prefixProd[i-1];
             else
