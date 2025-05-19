@@ -9,7 +9,7 @@ public class Solution {
                 var indx = 0;
                 while(indx < sb.Length){
                     if(sb[indx] == s[i]){
-                        sb.Remove(0,indx);
+                        sb.Remove(0,++indx);
                         break;
                     }
                     set.Remove(sb[indx]);
