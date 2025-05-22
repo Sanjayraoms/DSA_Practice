@@ -11,16 +11,16 @@
  */
 public class Solution {
     public ListNode ReverseList(ListNode head) {
+        var currNode = head;
         ListNode prevNode = null;
-        ListNode currNode = head;
-        ListNode swapNode = null;
+        ListNode nextNode = null;
+
         while(currNode != null){
-            swapNode = currNode.next;
+            nextNode = currNode.next;
             currNode.next = prevNode;
             prevNode = currNode;
-            currNode = swapNode;
+            currNode = nextNode;
         }
-        head = prevNode;
-        return head;
+        return prevNode;
     }
 }
