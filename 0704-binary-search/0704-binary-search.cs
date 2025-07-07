@@ -1,19 +1,14 @@
 public class Solution {
     public int Search(int[] nums, int target) {
-        int left = 0, right = nums.Length;
-        int pivot = 0;
+        int l = 0; int r = nums.Length - 1;
 
-        while(left <= right){
-            pivot = (left + right) / 2;
-            if(pivot < 0 || pivot >= nums.Length)
-                return -1;
-            if(nums[pivot] == target)
-                return pivot;
-            if(nums[pivot] > target)
-                right = pivot - 1;
+        while(l < r){
+            int pivot = (l+r)/2;
+            if(nums[pivot] < target)
+                l = pivot + 1;
             else
-                left = pivot + 1;
+                r = pivot;
         }
-        return -1;
+        return nums[l] == target ? l : -1;
     }
 }
