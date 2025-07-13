@@ -1,17 +1,18 @@
 public class Solution {
     public int MajorityElement(int[] nums) {
-        int nby2 = (int)Math.Floor((double)(nums.Length/2)); 
-        Dictionary<int,int> map = new Dictionary<int,int>();
-        foreach(int num in nums){
-            if(map.ContainsKey(num)){
-                map[num] += 1;
-            }else{
-                map[num] = 1;
-            }
-            if(map[num] > nby2){
-                return num;
+        int vote = 1;
+        int curr = nums[0];
+
+        for(int i=1; i < nums.Length; i++){
+            if(nums[i] == curr)
+                vote++;
+            else
+                vote--;
+            if(vote == 0){
+                curr = nums[i];
+                vote = 1;
             }
         }
-        return 0;
+        return curr;
     }
 }
