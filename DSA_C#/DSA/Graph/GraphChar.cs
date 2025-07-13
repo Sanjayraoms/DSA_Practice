@@ -43,5 +43,31 @@ namespace Graphs
             DFS(start);
             return visited;
         }
+
+        public List<char> depthFirstIterative(char start)
+        {
+            List<char> visited = new List<char>();
+            Stack<char> stack = new Stack<char>();
+            stack.Push(start);
+
+            while (stack.Count > 0)
+            {
+                var popped = stack.Pop();
+                if (!visited.Contains(popped))
+                    visited.Add(popped);
+                else
+                    continue;
+                foreach (char ch in adjacencyList[popped])
+                {
+                    stack.Push(ch);
+                }
+            }
+            return visited;
+        }
+
+        public List<int> BreadthFirstSearch(char start)
+        {
+            return new List<int>();
+        }
     }
 }

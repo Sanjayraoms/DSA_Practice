@@ -38,7 +38,7 @@ graphChar.AddEdge('D', 'E');
 graphChar.AddEdge('D', 'F');
 graphChar.AddEdge('E', 'F');
 
-var res = graphChar.depthFirstRecursive('A');
+var res = graphChar.depthFirstIterative('A');
 foreach (var item in res)
 {
     Console.WriteLine(item);
