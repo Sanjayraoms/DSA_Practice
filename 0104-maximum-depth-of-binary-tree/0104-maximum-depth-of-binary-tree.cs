@@ -13,11 +13,15 @@
  */
 public class Solution {
     public int MaxDepth(TreeNode root) {
+        //Base case
         if(root == null)
-           return 0;
-        var leftDepth = MaxDepth(root.left);
-        var rightDepth = MaxDepth(root.right);
+            return 0;
 
-        return Math.Max(leftDepth,rightDepth) + 1;
+        //Hypothesis that this function gives height for any node
+        int lh = MaxDepth(root.left);
+        int rh = MaxDepth(root.right);
+
+        //Induction we need to take max of left and right and add it to current node for total height
+        return 1 + Math.Max(lh, rh);
     }
 }
