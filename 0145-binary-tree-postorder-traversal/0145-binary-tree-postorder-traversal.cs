@@ -12,15 +12,13 @@
  * }
  */
 public class Solution {
-    List<int> visited = new List<int>();
     public IList<int> PostorderTraversal(TreeNode root) {
-        if(root != null)
-            PostOrder(root);
-        return visited;        
-    }
-    void PostOrder(TreeNode node){
-        if(node.left!= null) PostOrder(node.left);
-        if(node.right!=null) PostOrder(node.right);
-        visited.Add(node.val);
+        if(root == null)
+            return [];
+        List<int> visited = new();
+        if(root.left != null) visited.AddRange(PostorderTraversal(root.left));
+        if(root.right != null) visited.AddRange(PostorderTraversal(root.right));
+        visited.Add(root.val);
+        return visited;
     }
 }
