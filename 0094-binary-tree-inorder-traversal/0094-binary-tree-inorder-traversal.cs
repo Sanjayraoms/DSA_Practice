@@ -13,15 +13,14 @@
  */
 public class Solution {
     public IList<int> InorderTraversal(TreeNode root) {
+        List<int> visited = new();
         if(root == null)
-            return [];
-        List<int> visited = new List<int>();
-        void Traverse(TreeNode node){
-            if(node.left != null) Traverse(node.left);
-            visited.Add(node.val);
-            if(node.right != null) Traverse(node.right);
-        }
-        Traverse(root);
+            return visited;
+        if(root.left != null)
+            visited.AddRange(InorderTraversal(root.left));
+        visited.Add(root.val);
+        if(root.right != null)
+            visited.AddRange(InorderTraversal(root.right));
         return visited;
     }
 }
