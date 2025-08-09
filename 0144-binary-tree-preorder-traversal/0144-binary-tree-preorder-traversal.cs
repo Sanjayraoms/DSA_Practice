@@ -12,15 +12,13 @@
  * }
  */
 public class Solution {
-    List<int> visited = new List<int>();
     public IList<int> PreorderTraversal(TreeNode root) {
-        if(root!=null)
-            Traverse(root);
+        List<int> visited = new();
+        if(root == null)
+            return visited;
+        visited.Add(root.val);
+        if(root.left != null) visited.AddRange(PreorderTraversal(root.left));
+        if(root.right != null) visited.AddRange(PreorderTraversal(root.right));
         return visited;
-    }
-    private void Traverse(TreeNode node){
-        visited.Add(node.val);
-        if(node.left!=null) Traverse(node.left);
-        if(node.right!=null) Traverse(node.right);
     }
 }
