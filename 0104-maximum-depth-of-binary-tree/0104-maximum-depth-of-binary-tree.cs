@@ -13,15 +13,20 @@
  */
 public class Solution {
     public int MaxDepth(TreeNode root) {
-        //Base case
+        int depth = 0;
         if(root == null)
-            return 0;
-
-        //Hypothesis that this function gives height for any node
-        int lh = MaxDepth(root.left);
-        int rh = MaxDepth(root.right);
-
-        //Induction we need to take max of left and right and add it to current node for total height
-        return 1 + Math.Max(lh, rh);
+            return depth;
+        Queue<TreeNode> q = new();
+        q.Enqueue(root);
+        while(q.Count > 0){
+            var len = q.Count;
+            depth++;
+            while(len-- > 0){
+                var curr = q.Dequeue();
+                if(curr.left != null) q.Enqueue(curr.left);
+                if(curr.right != null) q.Enqueue(curr.right);
+            }
+        }
+        return depth;
     }
 }
