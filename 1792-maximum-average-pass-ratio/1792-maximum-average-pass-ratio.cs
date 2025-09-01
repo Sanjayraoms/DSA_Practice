@@ -7,13 +7,12 @@ public class Solution {
             avg = profit(cls[0],cls[1]);
             pq.Enqueue(cls,avg);
         }
-        while(extraStudents > 0){
+        while(extraStudents-- > 0){
             var dq = pq.Dequeue();
             dq[0]++;
             dq[1]++;
             avg = profit(dq[0],dq[1]);
             pq.Enqueue(dq,avg);
-            extraStudents--;
         }
         while(pq.Count > 0){
             var dq = pq.Dequeue();
