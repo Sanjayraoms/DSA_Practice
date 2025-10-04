@@ -1,17 +1,15 @@
 public class Solution {
     public int MaxArea(int[] height) {
-        int i = 0;
-        int j = height.Length - 1;
-
-        int res = 0;
-        while(i < j){
-            var curr = Math.Min(height[i], height[j]);
-            res = Math.Max(res,curr*(j-i));
-            if(height[j] > height[i])
-                i++;
+        int maxArea = 0;
+        int l = 0, r = height.Length - 1;
+        while(l < r){
+            var currArea = (r-l) * Math.Min(height[l], height[r]);
+            maxArea = Math.Max(maxArea,currArea);
+            if(height[r] > height[l])
+                l++;
             else
-                j--;
-        }
-        return res;
+                r--;
+        } 
+        return maxArea;
     }
 }
