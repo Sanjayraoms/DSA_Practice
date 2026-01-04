@@ -9,6 +9,8 @@ public class Solution {
                     var l = num / i;
                     if(l != i) divisors.Add(l);
                 }
+                if(divisors.Count > 4)
+                    break;
             }
             if(divisors.Count == 4){
                 res += divisors.Sum();
