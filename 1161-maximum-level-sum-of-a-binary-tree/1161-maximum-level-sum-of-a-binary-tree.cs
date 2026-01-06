@@ -13,28 +13,29 @@
  */
 public class Solution {
     public int MaxLevelSum(TreeNode root) {
-        long maxSum = Int64.MinValue;
-        long currmaxSum = Int64.MinValue;
         int level = 0;
-        int currlevel = 0;
-        Queue<TreeNode> q = new Queue<TreeNode>();
+        int maxlevel = 0;
+        int currMax = root.val;
+        var q = new Queue<TreeNode>();
         q.Enqueue(root);
+
         while(q.Count > 0){
-            currlevel++;
-            var ctr = q.Count;
-            currmaxSum = 0;
-            while(ctr > 0){
-                var currNode = q.Dequeue();
-                currmaxSum += currNode.val;
-                if(currNode.left != null) q.Enqueue(currNode.left);
-                if(currNode.right != null) q.Enqueue(currNode.right);
-                ctr--;
+            var currCnt = q.Count;
+            var currSum = 0;
+            level++;
+            while(currCnt-- > 0){
+                var dq = q.Dequeue();
+                currSum += dq.val;
+                if(dq.left != null)
+                    q.Enqueue(dq.left);
+                if(dq.right != null)
+                    q.Enqueue(dq.right);
             }
-            if(currmaxSum > maxSum){
-                maxSum = currmaxSum;
-                level = currlevel;
+            if(currSum > currMax){
+                maxlevel = level;
+                currMax = currSum;
             }
         }
-        return level;
+        return maxlevel;
     }
 }
